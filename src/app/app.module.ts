@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MatToolbarModule, MatListModule, MatGridListModule, MatCardModule, MatButtonModule , MatInputModule, MatCheckboxModule, MatDialogModule, MatSlideToggleModule, MatSelectModule} from '@angular/material';
+import { AppMaterialModule } from './app-material/app-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import 'hammerjs';
@@ -43,16 +43,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    MatToolbarModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    MatSlideToggleModule,
-    MatSelectModule,
+    AppMaterialModule,
     FlexLayoutModule,
     AppRoutingModule,
     ReactiveFormsModule
