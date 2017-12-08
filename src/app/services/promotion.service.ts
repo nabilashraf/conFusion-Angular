@@ -23,6 +23,7 @@ export class PromotionService {
   }
 
   getFeaturedPromotion(): Observable<Promotion> {
-    return Observable.of(PROMOTIONS.filter((promotion) => promotion.featured)[0]).delay(2000);
-    
+    return Observable.of(PROMOTIONS.filter((promotion) => promotion.featured)[0]).delay(2000);   
+}
+
 }
