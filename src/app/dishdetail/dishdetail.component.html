@@ -13,7 +13,7 @@
           <h3>{{dish.name | uppercase}}</h3>
         </mat-card-title>
       </mat-card-header>
-      <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+      <img mat-card-image src="{{BaseURL + dish.image}}" alt={{dish.name}}>
       <mat-card-content>
         <p>{{dish.description}}</p>
       </mat-card-content>
@@ -37,13 +37,13 @@
 	    	</mat-list-item>
       </mat-list>
       <mat-list>
-        <mat-list-item>
-          <p matLine>{{ feedback.comment}} </p>
-          <p matLine>{{ feedback.rating}}</p>
-          <p matLine> -- {{ feedback.author}} {{ date | date}}</p>
-        </mat-list-item>
         <div class="form-size">
         <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+          <mat-list-item>
+          <p matLine>{{ feedbackForm.value.comment}} </p>
+          <p matLine>{{ feedbackForm.value.rating}}</p>
+          <p matLine> -- {{ feedbackForm.value.author}} {{ feedbackForm.value.date | date}}</p>
+        </mat-list-item>
           <p>
             <mat-input-container class="full-width" dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
               <input matInput formControlName="author" placeholder="Name" type="text" required>
