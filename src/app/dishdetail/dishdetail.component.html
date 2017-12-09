@@ -37,42 +37,37 @@
 	    	</mat-list-item>
       </mat-list>
       <mat-list>
-        <div class="form-size">
-        <form [formGroup]="dishCommentForm" (ngSubmit)="onSubmit()">
-          <mat-list-item>
+      <form [formGroup]="dishCommentForm" (ngSubmit)="onSubmit()">
+        <mat-list-item>
           <p matLine>{{ dishCommentForm.value.comment}} </p>
           <p matLine>{{ dishCommentForm.value.rating}}</p>
-          <p matLine> -- {{ dishCommentForm.value.author}} {{ dishCommentForm.value.date | date}}</p>
+          <p matLine *ngIf="dishCommentForm.value.author"> -- {{ dishCommentForm.value.author}} </p>
         </mat-list-item>
-          <p>
-            <mat-input-container class="full-width" dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
-              <input matInput formControlName="author" placeholder="Name" type="text" required>
-              <mat-hint>
-                <span [hidden]="!(formErrors.author)">
-                  {{formErrors.author}}</span>
-              </mat-hint>
-            </mat-input-container>
-          </p>
-          <p>
-            <mat-slider matInput formControlName="rating" min=1 max=5 value=5 thumbLabel tickInterval=1></mat-slider>
-          </p>
-          <p>
-          <mat-input-container class="full-width" dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
-            <textarea matInput formControlName="comment" placeholder="Your Comment" rows=5></textarea>
+        <p>
+          <mat-input-container class="full-width" dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
+            <input matInput formControlName="author" placeholder="Name" type="text" required>
             <mat-hint>
-                <span [hidden]="!(formErrors.comment)">
-                  {{formErrors.comment}}</span>
-              </mat-hint>
+              <span [hidden]="!(formErrors.author)">
+                {{formErrors.author}}</span>
+            </mat-hint>
           </mat-input-container>
-          </p>
-          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="dishCommentForm.invalid">Submit</button>
-        </form>
-      </div>
-
-      </mat-list>
+        </p>
+        <p>
+          <mat-slider matInput formControlName="rating" min=1 max=5 value=5 thumbLabel tickInterval=1></mat-slider>
+        </p>
+        <p>
+        <mat-input-container class="full-width" dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
+          <textarea matInput formControlName="comment" placeholder="Your Comment" rows=5></textarea>
+          <mat-hint>
+              <span [hidden]="!(formErrors.comment)">
+                {{formErrors.comment}}</span>
+            </mat-hint>
+        </mat-input-container>
+        </p>
+        <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="dishCommentForm.invalid">Submit</button>
+      </form>
+    </mat-list>
   </div>
-
-
 
   <div [hidden]="dish || errMess">
     <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
