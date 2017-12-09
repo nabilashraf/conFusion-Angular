@@ -38,11 +38,11 @@
       </mat-list>
       <mat-list>
         <div class="form-size">
-        <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="dishCommentForm" (ngSubmit)="onSubmit()">
           <mat-list-item>
-          <p matLine>{{ feedbackForm.value.comment}} </p>
-          <p matLine>{{ feedbackForm.value.rating}}</p>
-          <p matLine> -- {{ feedbackForm.value.author}} {{ feedbackForm.value.date | date}}</p>
+          <p matLine>{{ dishCommentForm.value.comment}} </p>
+          <p matLine>{{ dishCommentForm.value.rating}}</p>
+          <p matLine> -- {{ dishCommentForm.value.author}} {{ dishCommentForm.value.date | date}}</p>
         </mat-list-item>
           <p>
             <mat-input-container class="full-width" dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
@@ -54,7 +54,7 @@
             </mat-input-container>
           </p>
           <p>
-            <mat-slider matInput formControlName="rating" min=1 max=5 step=1 value=5 thumbLabel tickInterval=1></mat-slider>
+            <mat-slider matInput formControlName="rating" min=1 max=5 value=5 thumbLabel tickInterval=1></mat-slider>
           </p>
           <p>
           <mat-input-container class="full-width" dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
@@ -65,7 +65,7 @@
               </mat-hint>
           </mat-input-container>
           </p>
-          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="dishCommentForm.invalid">Submit</button>
         </form>
       </div>
 
