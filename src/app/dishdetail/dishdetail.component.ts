@@ -6,7 +6,7 @@ import { DishService } from '../services/dish.service';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { visibility, expand } from '../animations/app.animation';
+import { visibility, expand , flyInOut } from '../animations/app.animation';
 import { Comment } from '../shared/comment';
 
 import 'rxjs/add/operator/switchMap';
@@ -15,7 +15,12 @@ import 'rxjs/add/operator/switchMap';
   selector: 'app-dishdetail',
   templateUrl: './dishdetail.component.html',
   styleUrls: ['./dishdetail.component.scss'],
+  host: {
+  '[@flyInOut]': 'true',
+  'style': 'display: block;'
+  },
   animations: [
+    flyInOut(),
     visibility(),
     expand()
   ]
